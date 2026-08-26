@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <meta name="theme-color" content="#0b0c0d">
+    <meta name="theme-color" content="#ffffff">
     <meta
       name="description"
       content="Skyline Plaza — интерактивная 3D-модель с просмотром в дополненной реальности на iPhone и Android."
@@ -19,95 +19,44 @@
   </head>
   <body>
     <main class="experience">
-      <header class="topbar">
-        <a class="brand" href="./" aria-label="Skyline Plaza, на главную">SKYLINE</a>
-        <button class="icon-button" id="fullscreen-button" type="button" aria-label="Открыть на весь экран">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M8 3H3v5M16 3h5v5M8 21H3v-5M16 21h5v-5" />
-          </svg>
-        </button>
-      </header>
-
-      <section class="showcase" aria-labelledby="model-title">
-        <div class="viewer-shell">
-          <model-viewer
-            id="model-viewer"
-            src="./assets/skyline_plaza.glb"
-            alt="Архитектурная 3D-модель комплекса Skyline Plaza"
-            ar
-            ar-modes="scene-viewer quick-look webxr"
-            ar-placement="floor"
-            ar-scale="auto"
-            ar-usdz-max-texture-size="2048"
-            camera-controls
-            touch-action="pan-y"
-            auto-rotate
-            auto-rotate-delay="1800"
-            rotation-per-second="12deg"
-            camera-orbit="35deg 67deg auto"
-            min-camera-orbit="auto 20deg auto"
-            max-camera-orbit="auto 88deg auto"
-            shadow-intensity="1.25"
-            shadow-softness="0.75"
-            exposure="1.05"
-            interaction-prompt="none"
-          >
-            <div class="load-state" slot="poster" aria-hidden="true">
-              <span class="load-mark"></span>
-              <span>Загрузка модели</span>
-            </div>
-            <div class="progress" slot="progress-bar" aria-hidden="true">
-              <span id="progress-fill"></span>
-            </div>
-          </model-viewer>
-
-          <div class="viewer-tools" role="group" aria-label="Управление моделью">
-            <button class="tool-button" id="reset-view-button" type="button" aria-label="Вернуть исходный ракурс">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M20 7v5h-5M4 17v-5h5" />
-                <path d="M6.1 8.2a7 7 0 0 1 11.8-1.1L20 12M4 12l2.1 4.9a7 7 0 0 0 11.8-1.1" />
-              </svg>
-            </button>
+      <section class="viewer-shell" aria-label="3D-модель Skyline Plaza">
+        <model-viewer
+          id="model-viewer"
+          src="./assets/skyline_plaza.glb"
+          alt="Архитектурная 3D-модель комплекса Skyline Plaza"
+          ar
+          ar-modes="scene-viewer quick-look webxr"
+          ar-placement="floor"
+          ar-scale="auto"
+          ar-usdz-max-texture-size="2048"
+          camera-controls
+          touch-action="pan-y"
+          auto-rotate
+          auto-rotate-delay="1200"
+          rotation-per-second="12deg"
+          camera-orbit="35deg 67deg auto"
+          min-camera-orbit="auto 20deg auto"
+          max-camera-orbit="auto 88deg auto"
+          shadow-intensity="1.1"
+          shadow-softness="0.8"
+          exposure="1.05"
+          interaction-prompt="none"
+        >
+          <div class="load-state" slot="poster" aria-hidden="true">Загрузка модели…</div>
+          <div class="progress" slot="progress-bar" aria-hidden="true">
+            <span id="progress-fill"></span>
           </div>
+        </model-viewer>
 
-          <p class="viewer-error" id="viewer-error" role="status" hidden>
-            Не удалось загрузить 3D-модель. Обновите страницу.
-          </p>
-        </div>
-
-        <div class="content">
-          <div class="title-block">
-            <h1 id="model-title">Skyline Plaza</h1>
-            <p>Архитектура в вашем пространстве</p>
-          </div>
-
-          <button class="ar-button" id="ar-button" type="button">
-            <svg viewBox="0 0 32 32" aria-hidden="true">
-              <path d="M11.5 5H5v6.5M20.5 5H27v6.5M11.5 27H5v-6.5M20.5 27H27v-6.5" />
-              <path d="m16 10 5 2.8v6.3L16 22l-5-2.9v-6.3L16 10Z" />
-              <path d="m11 12.8 5 2.9 5-2.9M16 15.7V22" />
-            </svg>
-            <span>Открыть в AR</span>
-          </button>
-
-          <div class="rotate-hint">
-            <svg viewBox="0 0 28 28" aria-hidden="true">
-              <path d="M5 10c1.6-3.2 5-5.5 9-5.5 4.2 0 7.7 2.4 9.2 5.9" />
-              <path d="m4 5.8 1 4.7 4.7-1M24 5.8l-1 4.7-4.7-1" />
-              <path d="M12.5 12.5v7.1l-1.7-1.3a1.9 1.9 0 0 0-2.5.1 1.8 1.8 0 0 0 0 2.6l3.8 3.7h6.8c1.7 0 3.1-1.4 3.1-3.1v-7.5a1.8 1.8 0 0 0-3.5-.5v-1.1a1.8 1.8 0 0 0-3.5-.5 1.8 1.8 0 0 0-2.5.5Z" />
-            </svg>
-            <span>Вращайте модель пальцем</span>
-          </div>
-
-          <div class="compatibility">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <rect x="7" y="2.5" width="10" height="19" rx="2.2" />
-              <path d="M10.5 5h3M11 18.5h2" />
-            </svg>
-            <span>Работает на iPhone и Android</span>
-          </div>
-        </div>
+        <p class="viewer-error" id="viewer-error" role="status" hidden>
+          Не удалось загрузить 3D-модель. Обновите страницу.
+        </p>
       </section>
+
+      <div class="controls">
+        <button class="ar-button" id="ar-button" type="button">Показать в AR</button>
+        <p class="instructions">Вращайте модель пальцем. Сведите или разведите пальцы, чтобы изменить масштаб.</p>
+      </div>
 
       <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
     </main>
