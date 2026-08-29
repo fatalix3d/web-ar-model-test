@@ -13,3 +13,7 @@ python3 -m http.server 4173
 ## Публикация
 
 Проект не требует сборки и публикуется из корня ветки `main` через GitHub Pages.
+
+## Окружение
+
+Для освещения и отражений используется HDRI [Modern Buildings](https://polyhaven.com/a/modern_buildings) от Greg Zaal / Poly Haven, лицензия CC0.
